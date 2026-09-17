@@ -28,5 +28,4 @@ Open the `index.html` file in a web browser.
 
 
 
-Updated on main branch.
-
+Updated during Git branching practical - navbar feature added.
