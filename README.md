@@ -28,5 +28,5 @@ Open the `index.html` file in a web browser.
 
 
 
-Updated during Git branching practical.
+Updated on main branch.
 
