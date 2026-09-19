@@ -1,30 +1,2019 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Nimra's Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lumière | Little Gifts, Big Feelings</title>
 
     <style>
-       <body>
+                /* ---------- BASIC RESET ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            background: #fcfbff;
+            color: #30445a;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #72a5d5;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #e7a9bb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #53677c;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #72a5d5;
+        }
+
+        .cart-button {
+            border: none;
+            background: #edf6ff;
+            color: #5687b5;
+
+            padding: 11px 18px;
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #dceeff;
+            transform: translateY(-2px);
+        }
+
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            min-height: 82vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+
+            padding: 75px 8%;
+
+            background:
+                radial-gradient(circle at 85% 25%, #ffeaf1 0, transparent 22%),
+                radial-gradient(circle at 10% 80%, #e5f4ff 0, transparent 25%),
+                #fcfbff;
+        }
+
+        .hero-text {
+            max-width: 570px;
+        }
+
+        .small-label {
+            display: inline-block;
+
+            padding: 9px 17px;
+            margin-bottom: 22px;
+
+            border-radius: 30px;
+
+            background: #e8f4ff;
+            color: #6598c5;
+
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 76px);
+            line-height: 1.02;
+
+            color: #30465d;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #78a9d6;
+        }
+
+        .hero-text p {
+            max-width: 500px;
+
+            color: #718296;
+            font-size: 17px;
+            line-height: 1.8;
+
+            margin-bottom: 32px;
+        }
+
+        .shop-button {
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            background: #78a9d6;
+            color: white;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            box-shadow: 0 10px 25px rgba(120, 169, 214, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .shop-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(120, 169, 214, 0.35);
+        }
+
+
+        /* ---------- HERO VISUAL ---------- */
+
+        .hero-visual {
+            position: relative;
+
+            width: 390px;
+            height: 390px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-card {
+            width: 300px;
+            height: 320px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                145deg,
+                #e8f5ff,
+                #fff5f8
+            );
+
+            border-radius: 45px;
+
+            box-shadow:
+                0 30px 70px rgba(89, 126, 158, 0.14);
+
+            transform: rotate(2deg);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .gift-icon {
+            font-size: 105px;
+            margin-bottom: 15px;
+        }
+
+        .gift-card h3 {
+            color: #536d85;
+            font-size: 20px;
+        }
+
+        .gift-card p {
+            margin-top: 7px;
+            color: #91a0ae;
+            font-size: 13px;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 25px;
+            color: #e6a8ba;
+
+            animation: floatHeart 3s ease-in-out infinite;
+        }
+
+        .heart-one {
+            top: 35px;
+            right: 30px;
+        }
+
+        .heart-two {
+            bottom: 40px;
+            left: 25px;
+            animation-delay: 1s;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: rotate(2deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(2deg) translateY(-10px);
+            }
+        }
+
+        @keyframes floatHeart {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        /* ---------- SECTION HEADINGS ---------- */
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            display: inline-block;
+            color: #d995aa;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            color: #30465d;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #8493a2;
+            font-size: 15px;
+        }
+
+
+        /* ---------- SHOP BY MOOD ---------- */
+
+        .mood-section {
+            padding: 95px 8%;
+            background: #ffffff;
+        }
+
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .mood-card {
+            padding: 35px 30px;
+            border-radius: 28px;
+            color: #30465d;
+            border: 1px solid rgba(100, 130, 160, 0.08);
+            transition: 0.35s ease;
+        }
+
+        .mood-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(72, 100, 130, 0.12);
+        }
+
+        .birthday {
+            background: #fff1f5;
+        }
+
+        .bestie {
+            background: #eef7ff;
+        }
+
+        .just-because {
+            background: #f5f0ff;
+        }
+
+        .mood-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .mood-card h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .mood-card p {
+            color: #788999;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .mood-card span {
+            color: #6d9dca;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+
+        /* ---------- SHOP / PRODUCTS ---------- */
+
+        .shop-section {
+            padding: 100px 8%;
+            background: #f9fbfe;
+        }
+
+        .product-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+
+            border: 1px solid #edf1f5;
+
+            transition: 0.35s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(75, 105, 135, 0.12);
+        }
+
+        .product-image {
+            height: 240px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            font-size: 82px;
+        }
+
+        .product-image.pink {
+            background: linear-gradient(145deg, #fff0f5, #ffe4ec);
+        }
+
+        .product-image.blue {
+            background: linear-gradient(145deg, #edf8ff, #dcefff);
+        }
+
+        .product-image.lavender {
+            background: linear-gradient(145deg, #f6f0ff, #ebe2ff);
+        }
+
+        .product-image.peach {
+            background: linear-gradient(145deg, #fff3eb, #ffe6d7);
+        }
+
+        .product-image.green {
+            background: linear-gradient(145deg, #effaf5, #dcf3e9);
+        }
+
+        .product-image.yellow {
+            background: linear-gradient(145deg, #fffbed, #fff2c8);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+
+            padding: 6px 10px;
+
+            background: rgba(255, 255, 255, 0.85);
+            color: #6f91ad;
+
+            border-radius: 20px;
+
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .product-details {
+            padding: 22px;
+        }
+
+        .product-details h3 {
+            color: #30465d;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .product-details > p {
+            color: #8493a2;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+            margin-bottom: 18px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-bottom strong {
+            color: #6b9dca;
+            font-size: 19px;
+        }
+
+        .add-button {
+            border: none;
+            background: #edf6ff;
+            color: #598bb8;
+
+            padding: 9px 15px;
+            border-radius: 20px;
+
+            cursor: pointer;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .add-button:hover {
+            background: #dceeff;
+            transform: scale(1.05);
+        }
+
+
+        /* ---------- SPECIAL BANNER ---------- */
+
+        .special-section {
+            margin: 40px 8% 100px;
+
+            min-height: 350px;
+
+            padding: 55px 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            overflow: hidden;
+
+            border-radius: 35px;
+
+            background:
+                radial-gradient(circle at 80% 20%, #fff0f5, transparent 30%),
+                linear-gradient(135deg, #edf7ff, #fffafd);
+        }
+
+        .special-content {
+            max-width: 600px;
+        }
+
+        .special-content > span {
+            color: #d995aa;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .special-content h2 {
+            margin: 15px 0;
+
+            font-size: 42px;
+            line-height: 1.15;
+            color: #30465d;
+        }
+
+        .special-content p {
+            color: #7e8e9d;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .special-content a {
+            color: #679aca;
+            font-weight: bold;
+        }
+
+        .special-visual {
+            width: 190px;
+            height: 190px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            border-radius: 50%;
+
+            font-size: 80px;
+
+            box-shadow: 0 20px 45px rgba(90, 120, 150, 0.1);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+
+        /* ---------- GIFT CATEGORIES ---------- */
+
+        .gift-section {
+            padding: 40px 8% 100px;
+            background: #ffffff;
+        }
+
+        .gift-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .gift-category {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border: 1px solid #edf1f5;
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+        .gift-category:hover {
+            transform: translateY(-6px);
+            border-color: #dceeff;
+            box-shadow: 0 15px 30px rgba(75, 105, 135, 0.08);
+        }
+
+        .gift-category span {
+            font-size: 38px;
+        }
+
+        .gift-category h3 {
+            margin: 15px 0 7px;
+            color: #40586e;
+            font-size: 17px;
+        }
+
+        .gift-category p {
+            color: #91a0ae;
+            font-size: 12px;
+        }
+
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 55px;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-visual {
+                width: 320px;
+                height: 320px;
+            }
+
+            .gift-card {
+                width: 250px;
+                height: 270px;
+            }
+
+            .gift-icon {
+                font-size: 85px;
+            }
+
+            .section-heading h2 {
+                font-size: 31px;
+            }
+
+            .mood-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .special-section {
+                margin-left: 5%;
+                margin-right: 5%;
+                padding: 45px 30px;
+                flex-direction: column;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .special-content h2 {
+                font-size: 34px;
+            }
+
+            .gift-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* ---------- ABOUT SECTION ---------- */
+
+.about-section {
+    padding: 100px 8%;
+    background: #f9fbfe;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+}
+
+.about-content {
+    max-width: 650px;
+}
+
+.about-content > span {
+    color: #d995aa;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-content h2 {
+    margin: 15px 0 20px;
+
+    color: #30465d;
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+.about-content > p {
+    color: #7e8e9d;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.about-points {
+    display: flex;
+    gap: 28px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.about-points div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #60778d;
+    font-size: 13px;
+}
+
+.about-points strong {
+    font-size: 20px;
+    color: #78a9d6;
+}
+
+
+/* ---------- ABOUT CARD ---------- */
+
+.about-card {
+    width: 330px;
+    min-height: 330px;
+
+    padding: 45px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        #eaf6ff,
+        #fff1f6
+    );
+
+    border-radius: 40px;
+
+    box-shadow: 0 25px 55px rgba(75, 105, 135, 0.12);
+
+    transition: 0.35s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+}
+
+.about-card-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    color: #30465d;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    color: #7e8e9d;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.about-card > span {
+    color: #d18fa5;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ---------- NEWSLETTER ---------- */
+
+.newsletter-section {
+    padding: 100px 8%;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #e8f5ff,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            #ffeaf1,
+            transparent 30%
+        ),
+        #ffffff;
+
+    text-align: center;
+}
+
+.newsletter-content {
+    max-width: 650px;
+    margin: auto;
+}
+
+.newsletter-content > span {
+    color: #d995aa;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.newsletter-content h2 {
+    margin: 15px 0;
+
+    color: #30465d;
+    font-size: 42px;
+    line-height: 1.15;
+}
+
+.newsletter-content p {
+    color: #8493a2;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: auto;
+
+    display: flex;
+    gap: 10px;
+
+    padding: 7px;
+
+    background: white;
+
+    border: 1px solid #e6edf4;
+    border-radius: 40px;
+
+    box-shadow: 0 15px 35px rgba(75, 105, 135, 0.08);
+}
+
+.newsletter-form input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 12px 18px;
+
+    color: #53677c;
+    font-family: inherit;
+    font-size: 13px;
+
+    background: transparent;
+}
+
+.newsletter-form input::placeholder {
+    color: #a4b0bc;
+}
+
+.newsletter-form button {
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    background: #78a9d6;
+    color: white;
+
+    font-family: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #6598c5;
+    transform: translateY(-2px);
+}
+
+#subscribe-message {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #d18fa5;
+    font-size: 13px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background: #30465d;
+    color: white;
+    padding: 65px 8% 25px;
+}
+
+.footer-main {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 50px;
+}
+
+.footer-brand h2 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.footer-brand h2 span {
+    color: #e7a9bb;
+}
+
+.footer-brand p,
+.footer-note p {
+    color: #c4d0db;
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 260px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer-links h4,
+.footer-note h4 {
+    margin-bottom: 8px;
+
+    color: white;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: #c4d0db;
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+.footer-note {
+    max-width: 220px;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+
+    margin: 50px auto 0;
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    color: #aebdca;
+    font-size: 11px;
+}
+
+.footer-bottom span {
+    color: #d8a5b5;
+}
+
+
+/* ---------- MOBILE ADDITIONS ---------- */
+
+@media (max-width: 850px) {
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-points {
+        justify-content: center;
+    }
+
+    .about-card {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .newsletter-content h2 {
+        font-size: 34px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+        background: white;
+        border: 1px solid #e6edf4;
+        border-radius: 30px;
+        padding: 14px 18px;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* ---------- CART ---------- */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(48, 70, 93, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 1999;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.cart-panel {
+    position: fixed;
+
+    top: 0;
+    right: -420px;
+
+    width: 390px;
+    max-width: 90%;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 2000;
+
+    padding: 30px;
+
+    box-shadow: -15px 0 45px rgba(48, 70, 93, 0.15);
+
+    transition: 0.4s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cart-panel.active {
+    right: 0;
+}
+
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+
+.cart-header h2 {
+    color: #30465d;
+    font-size: 25px;
+}
+
+
+.cart-header button {
+    border: none;
+
+    background: #edf6ff;
+
+    color: #5687b5;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+.cart-items {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px 0;
+}
+
+
+.empty-cart {
+    text-align: center;
+
+    color: #91a0ae;
+
+    font-size: 14px;
+
+    margin-top: 50px;
+}
+
+
+.cart-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    background: #f8fbff;
+
+    border-radius: 18px;
+}
+
+
+.cart-item h3 {
+    color: #40586e;
+
+    font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+
+.cart-item span {
+    color: #78a9d6;
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+
+.cart-item button {
+    border: none;
+
+    background: #fff0f5;
+
+    color: #d995aa;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+.cart-footer {
+    border-top: 1px solid #edf1f5;
+
+    padding-top: 20px;
+}
+
+
+.cart-footer > div {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    color: #718296;
+}
+
+
+.cart-footer strong {
+    color: #30465d;
+
+    font-size: 20px;
+}
+
+
+.checkout-button {
+    width: 100%;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 30px;
+
+    background: #78a9d6;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.checkout-button:hover {
+    background: #6598c5;
+
+    transform: translateY(-2px);
+}
+/* ---------- PRODUCT PHOTOS ---------- */
+
+.product-image {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-image .product-tag {
+    z-index: 5;
+}
+    </style> 
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
+
+        <a href="#home" class="logo">
+            Lumière <span>♡</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+        </div>
+        <button class="cart-button" onclick="openCart()">
+            🛒 Cart <span id="cart-count">0</span>
+        </button>
+        
     </nav>
 
-    <p>Welcome to my cybersecurity portfolio.</p>
 
-    <h1>Welcome to My Portfolio</h1>
+    <!-- HERO SECTION -->
 
-    <h2>Cybersecurity Student</h2>
+    <section class="hero" id="home">
 
-    <p>Hello! Welcome to my personal portfolio.</p>
+        <div class="hero-text">
 
-</body>
-    <h1>Welcome to My Portfolio</h1>
+            <span class="small-label">
+                ✦ LITTLE MOMENTS, BIG SMILES
+            </span>
+
+            <h1>
+                Little gifts.<br>
+                <span>Big feelings.</span>
+            </h1>
+
+            <p>
+                Thoughtful little things for your favourite people,
+                special moments, and just-because days.
+            </p>
+
+            <a href="#shop" class="shop-button">
+                Shop Gifts →
+            </a>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="floating-heart heart-one">
+                ♡
+            </div>
+
+            <div class="gift-card">
+
+                <div class="gift-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Made with love
+                </h3>
+
+                <p>
+                    A little something special ♡
+                </p>
+
+            </div>
+
+            <div class="floating-heart heart-two">
+                ♡
+            </div>
+
+        </div>
+
+    </section>
+        <!-- SHOP BY MOOD -->
+
+    <section class="mood-section" id="categories">
+
+        <div class="section-heading">
+            <span>FIND THE PERFECT ONE</span>
+            <h2>Shop by mood ♡</h2>
+            <p>Because every feeling deserves a little something.</p>
+        </div>
+
+        <div class="mood-grid">
+
+            <a href="#shop" class="mood-card birthday">
+                <div class="mood-icon">🎂</div>
+                <h3>Birthday</h3>
+                <p>Make their day extra special</p>
+                <span>Explore →</span>
+            </a>
+
+            <a href="#shop" class="mood-card bestie">
+                <div class="mood-icon">💌</div>
+                <h3>For Your Bestie</h3>
+                <p>Little gifts for your person</p>
+                <span>Explore →</span>
+            </a>
+
+            <a href="#shop" class="mood-card just-because">
+                <div class="mood-icon">🎀</div>
+                <h3>Just Because</h3>
+                <p>No occasion needed ♡</p>
+                <span>Explore →</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- BESTSELLERS -->
+
+    <section class="shop-section" id="shop">
+
+        <div class="section-heading">
+
+            <span>OUR LITTLE FAVOURITES</span>
+
+            <h2>Bestsellers ✨</h2>
+
+            <p>
+                Gifts that make people smile a little bigger.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+<div class="product-image pink">
+    <img src="images/bestie-gift-box.jpg" alt="Bestie Gift Box">
+    <span class="product-tag">BESTSELLER</span>
+</div>
     
-    <h2>Cybersecurity Student</h2>
 
-    <p>Hello! Welcome to my personal portfolio.</p>
+                <div class="product-details">
+
+                    <h3>Bestie Gift Box</h3>
+
+                    <p>
+                        A sweet little box filled with thoughtful surprises.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹799</strong>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Bestie Gift Box')">
+                            + Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+             <div class="product-card">
+<div class="product-image blue">
+    <img src="images/mini-self-care-set.jpg" alt="Mini Self-Care Set">
+    <span class="product-tag">NEW</span>
+</div>
+            
+
+                <div class="product-details">
+
+                    <h3>Mini Self-Care Set</h3>
+
+                    <p>
+                        A cosy little collection for their me-time.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹649</strong>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Mini Self-Care Set')">
+                            + Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <!-- PRODUCT 2 -->
+             <div class="product-card">
+<div class="product-image lavender">
+    <img src="images/dreamy-journal.jpg" alt="Dreamy Journal">
+    <span class="product-tag">CUTE PICK</span>
+</div>
+            
+
+                <div class="product-details">
+
+                    <h3>Mini Self-Care Set</h3>
+                <div class="product-details">
+
+                    <h3>Dreamy Journal</h3>
+
+                    <p>
+                        A pretty space for thoughts, plans and little dreams.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹299</strong>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Dreamy Journal')">
+                            + Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+<div class="product-image peach">
+    <img src="images/little-bear-plushie.jpg" alt="Little Bear Plushie">
+    <span class="product-tag">GIFT PICK</span>
+</div>
+                
+
+                <div class="product-details">
+
+                    <h3>Little Bear Plushie</h3>
+
+                    <p>
+                        A tiny bundle of softness for someone special.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹449</strong>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Little Bear Plushie')">
+                            + Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="product-card">
+
+                <div class="product-image green">
+    <img src="images/friendship-bracelet-set.jpg" alt="Friendship Bracelet Set">
+    <span class="product-tag">FAVOURITE</span>
+</div>
+
+                <div class="product-details">
+
+                    <h3>Friendship Bracelet Set</h3>
+
+                    <p>
+                        Two little bracelets made for two favourite people.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹249</strong>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Friendship Bracelet Set')">
+                            + Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+
+            <div class="product-card">
+
+                <div class="product-image yellow">
+    <img src="images/little-things-gift-set.jpg" alt="Little Things Gift Set">
+    <span class="product-tag">LIMITED</span>
+</div>
+
+                <div class="product-details">
+
+                    <h3>Little Things Gift Set</h3>
+
+                    <p>
+                        A curated collection of tiny things they will love.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹599</strong>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Little Things Gift Set')">
+                            + Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPECIAL BANNER -->
+
+    <section class="special-section">
+
+        <div class="special-content">
+
+            <span>MADE FOR MOMENTS ♡</span>
+
+            <h2>
+                The smallest gifts<br>
+                can mean the most.
+            </h2>
+
+            <p>
+                Find something thoughtful for the people
+                who make your world a little brighter.
+            </p>
+
+            <a href="#shop">
+                Explore gifts →
+            </a>
+
+        </div>
+
+        <div class="special-visual">
+            🎁
+        </div>
+
+    </section>
+
+
+    <!-- GIFT CATEGORIES -->
+
+    <section class="gift-section">
+
+        <div class="section-heading">
+
+            <span>GIFT IDEAS</span>
+
+            <h2>Something for everyone ♡</h2>
+
+            <p>
+                A little inspiration for your next thoughtful surprise.
+            </p>
+
+        </div>
+
+
+        <div class="gift-grid">
+
+            <div class="gift-category">
+                <span>🎂</span>
+                <h3>Birthday Gifts</h3>
+                <p>For their special day</p>
+            </div>
+
+            <div class="gift-category">
+                <span>💗</span>
+                <h3>Bestie Gifts</h3>
+                <p>For your favourite human</p>
+            </div>
+
+            <div class="gift-category">
+                <span>🌷</span>
+                <h3>Self-Care</h3>
+                <p>For a little me-time</p>
+            </div>
+
+            <div class="gift-category">
+                <span>✨</span>
+                <h3>Gift Sets</h3>
+                <p>A little bit of everything</p>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ABOUT LUMIÈRE -->
+<section class="about-section" id="about">
+    <div class="about-content">
+        <span>OUR LITTLE STORY</span>
+        <h2>Thoughtful gifts,<br>made for meaningful moments ♡</h2>
+        <p>
+            Lumière is a little gift shop created for those moments
+            when you want to make someone smile. From birthdays to
+            random "thinking of you" surprises, we believe the smallest
+            gifts can carry the biggest feelings.
+        </p>
+
+        <div class="about-points">
+            <div>
+                <strong>♡</strong>
+                <span>Thoughtfully picked</span>
+            </div>
+
+            <div>
+                <strong>✦</strong>
+                <span>Made for every moment</span>
+            </div>
+
+            <div>
+                <strong>🎁</strong>
+                <span>Gift-ready ideas</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-card">
+        <div class="about-card-icon">💌</div>
+        <h3>A little reminder</h3>
+        <p>
+            You don't always need an occasion
+            to make someone feel special.
+        </p>
+        <span>Send a little love ♡</span>
+    </div>
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+    <div class="newsletter-content">
+        <span>STAY IN THE LOOP ✦</span>
+
+        <h2>Little ideas,<br>delivered to your inbox.</h2>
+
+        <p>
+            Get gift inspiration, new arrivals and little
+            surprises from Lumière.
+        </p>
+
+        <div class="newsletter-form">
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+            >
+
+            <button onclick="subscribeNewsletter()">
+                Subscribe
+            </button>
+        </div>
+
+        <small id="subscribe-message"></small>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-main">
+
+        <div class="footer-brand">
+            <h2>Lumière <span>♡</span></h2>
+
+            <p>
+                Little gifts for the people
+                who mean a little more.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Explore</h4>
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Gift Ideas</h4>
+            <a href="#shop">Birthday</a>
+            <a href="#shop">Besties</a>
+            <a href="#shop">Self-Care</a>
+            <a href="#shop">Gift Sets</a>
+        </div>
+
+        <div class="footer-note">
+            <h4>Made with ♡</h4>
+            <p>
+                For birthdays, friendships,
+                little celebrations and
+                just-because days.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Lumière. Made as a Git & GitHub practical project.</p>
+        <span>Little gifts. Big feelings. ♡</span>
+    </div>
+</footer>
+<!-- CART POPUP -->
+
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+<div class="cart-panel" id="cart-panel">
+
+    <div class="cart-header">
+        <h2>Your Cart ♡</h2>
+
+        <button onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+        <p class="empty-cart">
+            Your cart is waiting for a little something ♡
+        </p>
+    </div>
+
+    <div class="cart-footer">
+
+        <div>
+            <span>Total</span>
+            <strong id="cart-total">₹0</strong>
+        </div>
+
+        <button class="checkout-button" onclick="checkout()">
+            Continue to Checkout →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+    let cart = [];
+
+
+    function addToCart(productName) {
+
+        const prices = {
+            "Bestie Gift Box": 799,
+            "Mini Self-Care Set": 649,
+            "Dreamy Journal": 299,
+            "Little Bear Plushie": 449,
+            "Friendship Bracelet Set": 249,
+            "Little Things Gift Set": 599
+        };
+
+        cart.push({
+            name: productName,
+            price: prices[productName]
+        });
+
+        updateCart();
+
+        openCart();
+    }
+
+
+    function updateCart() {
+
+        document.getElementById("cart-count").textContent = cart.length;
+
+        const cartItems = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = `
+                <p class="empty-cart">
+                    Your cart is waiting for a little something ♡
+                </p>
+            `;
+
+            cartTotal.textContent = "₹0";
+
+            return;
+        }
+
+
+        cartItems.innerHTML = "";
+
+        let total = 0;
+
+        cart.forEach((item, index) => {
+
+            total += item.price;
+
+            cartItems.innerHTML += `
+                <div class="cart-item">
+
+                    <div>
+                        <h3>${item.name}</h3>
+                        <span>₹${item.price}</span>
+                    </div>
+
+                    <button onclick="removeFromCart(${index})">
+                        ×
+                    </button>
+
+                </div>
+            `;
+        });
+
+
+        cartTotal.textContent = "₹" + total;
+    }
+
+
+    function removeFromCart(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+    }
+
+
+    function openCart() {
+
+        document.getElementById("cart-panel").classList.add("active");
+
+        document.getElementById("cart-overlay").classList.add("active");
+    }
+
+
+    function closeCart() {
+
+        document.getElementById("cart-panel").classList.remove("active");
+
+        document.getElementById("cart-overlay").classList.remove("active");
+    }
+
+
+    function checkout() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty ♡");
+
+            return;
+        }
+
+        alert(
+            "Thank you for shopping with Lumière! ♡\n\nCheckout is coming soon."
+        );
+    }
+
+
+    function subscribeNewsletter() {
+
+        const email = document.getElementById("email").value;
+
+        const message =
+            document.getElementById("subscribe-message");
+
+
+        if (email.trim() === "") {
+
+            message.textContent =
+                "Please enter your email ♡";
+
+            return;
+        }
+
+
+        message.textContent =
+            "You're on the list! Little surprises coming your way ♡";
+
+        document.getElementById("email").value = "";
+    }
+
+</script>
 
 </body>
 </html>
